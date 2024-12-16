@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "charliermarsh.ruff",
+        "postman.postman-for-vscode",
+        "tamasfe.even-better-toml",
+        "ms-toolsai.jupyter",
+        "streetsidesoftware.code-spell-checker"
+    ]
+}
