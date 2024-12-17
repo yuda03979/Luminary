@@ -20,7 +20,7 @@ class OllamaApi:
         return ollama.embed(model=self.model_name, input=input)
 
 
-    def generate_schema(self, schema):
+    def generate_schema(self):
         pass
 
     def get_tasks(self):
@@ -28,3 +28,7 @@ class OllamaApi:
             "chat_stream": self.chat_stream,
             "embed": self.embed
         }
+    
+    def close(self):
+        ollama.generate(model=self.model_name, keep_alive=0)
+        return f"<closed model {self.model_name}>"

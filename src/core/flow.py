@@ -1,5 +1,5 @@
-from utils.models import MODELS
-from utils.globals import GLOBALS
+from src.utils.models import MODELS
+from src.utils.globals import GLOBALS
 
 
 

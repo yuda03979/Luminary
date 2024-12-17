@@ -9,3 +9,17 @@ given git or folder in the computer,
 
 
 the model will be able to ask for specific file, and to get this file. (using tools)
+
+
+issues: 
+- if i exceed the context length
+- if the model stoped to be loading
+
+for tomorrow:
+- generate a summary for the hole project, and its include to: 
+- organize the files in folder, and 
+- be able to read files with tools (because i assume people will enter in errors from the interpreter). 
+- each file should have summary, (and divided into chunks?), embedding.
+
+
+in the future: add more datasets of errors, of global problems, in case of this error.

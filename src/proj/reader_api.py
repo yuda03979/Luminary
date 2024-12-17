@@ -6,7 +6,7 @@ import tempfile
 import subprocess
 import time
 
-from utils.globals import GLOBALS
+from src.utils.globals import GLOBALS
 
 
 class ReaderApi:

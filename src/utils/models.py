@@ -1,4 +1,4 @@
-from ollama_dir.ollama_api import OllamaApi
+from src.ollama_dir.ollama_api import OllamaApi
 
 
 class Models:
@@ -12,6 +12,9 @@ class Models:
 
     def infer(self, model_name, task, param):
         return self.models[model_name].get_tasks()[task](param)
+    
+    def close(self):
+        [model.close() for model in self.models.values()]
 
 
 MODELS = Models()

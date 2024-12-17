@@ -2,9 +2,12 @@ import sys
 import readchar
 import termcolor
 
+from src.utils.models import MODELS
+
 def exiting_luminary():
-     print("\nExiting Luminary...")
-     sys.exit(0)
+    print("\nExiting Luminary...")
+    MODELS.close()
+    sys.exit(0)
 
 
 def input_with_placeholder(prefix=">>> ", placeholder="send your message "):
