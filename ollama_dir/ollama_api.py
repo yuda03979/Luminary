@@ -8,8 +8,12 @@ class OllamaApi:
         self.model_name = model_name
 
 
-    def chat(self, messages: list):
-        return ollama.chat(self.model_name, messages=messages).message.content
+    def chat_stream(self, messages: list):
+        response = ''
+        for part in ollama.chat(self.model_name, messages=messages, stream=True):
+            response += part['message']['content']
+            print(part['message']['content'], end='', flush=True)
+        return response
 
 
     def embed(self, input: Union[str, Sequence[str]]):
@@ -21,6 +25,6 @@ class OllamaApi:
 
     def get_tasks(self):
         return {
-            "chat": self.chat,
+            "chat_stream": self.chat_stream,
             "embed": self.embed
         }

@@ -11,4 +11,4 @@ class Flow:
 
 
     def infer(self, messages: list[dict]):
-        return MODELS.infer(model_name=self.model_name, task="chat", param=messages)
+        return MODELS.infer(model_name=self.model_name, task="chat_stream", param=messages)

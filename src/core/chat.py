@@ -1,6 +1,7 @@
-from src.core.flow import Flow
 from enum import Enum
 import utils.system_messages as system_messages
+from src.core.flow import Flow
+
 
 class Role(Enum):
     USER = 1
@@ -15,7 +16,7 @@ class Chat:
 
     def get_user_text(self):
         try:
-            user_input = input("You: ").strip()
+            user_input = system_messages.input_with_placeholder()
             if user_input.lower() in ['exit', 'quit', 'q']:
                 system_messages.exiting_luminary()
         except (EOFError, KeyboardInterrupt):
@@ -35,13 +36,9 @@ class Chat:
             "content": content
         }
         self.messages.append(message)
-    
-    def stream(self, response):
-        print("assistant: ", response)
-        return response
 
 
     def chitchat(self):
         while True:
             self.add_step(role=Role.USER, content=self.get_user_text())
-            self.add_step(role=Role.ASSISTANT, content=self.stream(response=self.flow.infer(self.messages)))
+            self.add_step(role=Role.ASSISTANT, content=self.flow.infer(self.messages))
